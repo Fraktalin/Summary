@@ -1,0 +1,26 @@
+.button-check {
+  padding: 5px 15px;
+  display: inline-block;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: .3s;
+  border: none;
+  margin-bottom: 20px;
+  &:hover {
+    background: rgba(139, 139, 139, 0.45)
+  }
+}
+.down-button {
+  margin: 0;
+  margin-top: 8px;
+  margin-left: auto;
+  padding: 5px 15px;
+  display: inline-block;
+  width: 150px;
+  transition: .3s;
+  border: none;
+  &:hover {
+    background: rgba(139, 139, 139, 0.45)
+  }
+}

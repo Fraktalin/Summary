@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+
+
+<!--
+Пример создан сайтом http://blogprogram.ru/plavnaya-prokrutka-mezhdu-ekranami-jquery/
+ -->
+
+
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<script>
+function slidescreen() { h = $(window).height(); $(".screen").css('height', h); };
+
+$(window).resize(slidescreen);
+$(document).ready(slidescreen);
+
+$(document).bind('mousewheel DOMMouseScroll', function(event) { scroll(event); });
+
+var num = 1;
+var scrolling = false;
+
+function scroll(event) {
+  event.preventDefault();
+  if (!scrolling) {
+    scrolling = true;
+    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+      num--;
+      num = num < 1 ? 1 : num;
+    } else {
+      num++;
+      num = num > $(".screen").length ? $(".screen").length : num;
+    }
+
+    $('html, body').animate({
+      scrollTop: $(".screen" + num).offset().top
+    }, 500, "linear", function() {
+      scrolling = false;
+    });
+  }
+}
+</script>
+
+
+<style>
+.screen  {display: block;position: relative;width: 100%;}
+.screen1 {background: #6affcd;}
+.screen2 {background: #CD5;}
+.screen3 {background: #2196F3;}
+.screen4 {background: #44ff38;}
+.screen5 {background: #ffe744;}
+</style>
+
+
+
+<div class="screen screen1">1</div>
+<div class="screen screen2">2</div>
+<div class="screen screen3">3</div>
+<div class="screen screen4">4</div>
+<div class="screen screen5">5</div>
